@@ -5,6 +5,8 @@
  * main - prints if the number is positive or negative or 0
  * return: always 0
  */
+
+/*function main goes there*/
 int main(void)
 {
 	int n;
