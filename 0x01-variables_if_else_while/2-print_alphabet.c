@@ -1,10 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 /**
  * main - entry to print alphabet lower case.
- * return: always 0
+ * return: always (sucess)
  */
 int main(void)
 {
@@ -13,6 +11,6 @@ for (lc = 'a'; lc <= 'z'; lc++)
 {
 putchar(lc);
 }
-putchar('\n");
+putchar('\n');
 return (0);
 }
