@@ -14,7 +14,7 @@ char by;
 for (num = 0; num < 10; num++)
 putchar((num % 10) + '0');
 
-for (`by = 'a'`; `by = 'f'`; by++)
+for (by = 'a'; by <= 'f'; by++)
 putchar(by);
 
 putchar('\n');
