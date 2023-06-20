@@ -7,11 +7,10 @@
  *              in the following format:
  *              0, 0, 0, 0, 0, 0, 0, 0, 0, 0
  *              0, 1, 2, 3, 4, 5, 6, 7, 8, 9
- *              ...
  *              0, 9, 18, 27, 36, 45, 54, 63, 72, 81
  */
 
-void times_table(void)
+void times_table_(void)
 {
 int num, mult, prod;
 
