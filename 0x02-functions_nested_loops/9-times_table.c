@@ -2,7 +2,7 @@
 
 /**
  * main - entry prints multiplication table from 0 to 9
- * times_table - Prints the multiplication table from 0 to 9.
+ * times_table_ is the Print of the multiplication table from 0 to 9.
  *
  * Description: This function prints the multiplication table from 0 to 9
  *              in the following format:
@@ -15,9 +15,10 @@
 
 int main(void)
 {
-times_table();
+times_table_();
 return (0);
 }
+void times_table_(void)
 {
 int num, mult, prod;
 
