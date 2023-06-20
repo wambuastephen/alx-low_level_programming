@@ -10,15 +10,14 @@
  *              0, 9, 18, 27, 36, 45, 54, 63, 72, 81
  */
 
-void times_table_(void)
+void times_table(void)
 {
 int num, mult, prod;
 
 for (num = 0; num <= 9; num++)
 {
 _putchar('0');
-for (mult = 1; mult <= 9;)
-mult++;
+for (mult = 1; mult <= 9; mult++)
 {
 _putchar(',');
 _putchar(' ');
