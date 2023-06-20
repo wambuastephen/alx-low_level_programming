@@ -1,5 +1,5 @@
 #include "main.h"
-
+int _putchar(char c);
 /**
  * print_alphabet_x10 - Prints the alphabet 10 times in lowercase.
  * Description: This function prints the lowercase alphabet 10 times using
