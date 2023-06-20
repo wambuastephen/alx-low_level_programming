@@ -1,6 +1,7 @@
 #include "main.h"
 
 /**
+ * main - entry prints multiplication table from 0 to 9
  * times_table - Prints the multiplication table from 0 to 9.
  *
  * Description: This function prints the multiplication table from 0 to 9
@@ -8,9 +9,15 @@
  *              0, 0, 0, 0, 0, 0, 0, 0, 0, 0
  *              0, 1, 2, 3, 4, 5, 6, 7, 8, 9
  *              0, 9, 18, 27, 36, 45, 54, 63, 72, 81
+ * Return: always 0 success
  */
 
-void times_table(void)
+
+int main(void)
+{
+times_table();
+return (0);
+}
 {
 int num, mult, prod;
 
