@@ -2,18 +2,16 @@
 
 /**
  * print_alphabet - Prints the alphabet in lowercase, followed by a new line.
- *
  * Description: This function prints the lowercase alphabet using _putchar,
- *              followed by a new line character.
+ *             followed by a new line character.
  */
+
 void print_alphabet(void)
 {
-char bc;
+char bb;
 
-for (bc = 'a'; bc <= 'z'; bc++)
-{
-_putchar(bc);
-}
+for (bb = 'a'; bb <= 'z'; bb++)
+_putchar(bb);
 
-_putchar('\n');
+_putchar("\n");
 }
