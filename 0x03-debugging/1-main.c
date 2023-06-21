@@ -3,6 +3,7 @@
 /**
 * main - causes an infinite loop
 * Return: 0
+*Description: "\\o/\n" is string literal with a regular character following newline
 */
 
 int main(void)
