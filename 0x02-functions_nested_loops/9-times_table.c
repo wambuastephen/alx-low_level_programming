@@ -12,34 +12,33 @@
  *              0, 9, 18, 27, 36, 45, 54, 63, 72, 81
  * Return: always 0 success
  */
-
-
-int main(void)
+void times_table(void)
 {
-times_table_();
-return (0);
+int x, y, u, d, z;
+for (x = 0; x <= 9; x++)
+{
+for (y = 0; y <= 9; y++)
+{
+z = x * y;
+if (z > 9)
+{
+u = z % 10;
+d = (z - u) / 10;
+_putchar(44);
+_putchar(32);
+_putchar(d + '0');
+_putchar(u + '0');
 }
-void times_table_(void)
-{
-int num, mult, prod;
-
-for (num = 0; num <= 9; num++)
-{
-_putchar('0');
-for (mult = 1; mult <= 9; mult++)
-{
-_putchar(',');
-_putchar(' ');
-
-prod = num * mult;
-
-if (prod <= 9)
-_putchar(' ');
-
 else
-
-_putchar((prod / 10) + '0');
-_putchar((prod % 10) + '0');
+{
+if (y != 0)
+{
+_putchar(44);
+_putchar(32);
+_putchar(32);
+}
+_putchar(z + '0');
+}
 }
 _putchar('\n');
 }
