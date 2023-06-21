@@ -3,7 +3,8 @@
 
 /**
  * void times_table(void) - entry prints multiplication table from 0 to 9
- * times_table_ is the Print of the multiplication table from 0 to 9.
+ *  times_table - Prints the multiplication table from 0 to 9.
+ *
  *
  * Description: This function prints the multiplication table from 0 to 9
  *              in the following format:
