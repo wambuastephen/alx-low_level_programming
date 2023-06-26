@@ -23,7 +23,7 @@ isi = 1;
 ni = (ni * 10) + (s[c] - '0');
 c++;
 }
-if (isi == 10)
+if (isi == 1)
 {
 break;
 }
