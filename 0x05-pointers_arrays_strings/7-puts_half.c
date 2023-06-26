@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * puts2 - prints every other character of a string.
+ * puts_half - prints every other character of a string.
  * @str: the string to be treated.
  * Return: void
  */
@@ -14,7 +14,7 @@ while (str[j] != '\0')
 {
 j++;
 }
-for (i = 0; i < j; i += 2)
+for (i = j / 2; i < j; i++)
 {
 _putchar(str[i]);
 }
