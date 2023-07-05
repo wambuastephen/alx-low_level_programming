@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * _pow_recursion - Calculates the value of x raised to the power of y using recursion.
+ * _pow_recursion - Calculates the value of x raised to the
+ * power of y using recursion.
  * @x: The base value.
  * @y: The exponent value.
  *
@@ -15,6 +16,6 @@ return (-1);
 if (y == 0) /* Base case: any number raised to 0 is 1 */
 return (1);
 
-return (x * _pow_recursion(x, y - 1)); /* Recursive call to calculate power */
+return (x * _pow_recursion(x, y - 1));/*Recursive call to calculate power */
 }
 
