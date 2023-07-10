@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * count_words - Counts the number of words in a string.
@@ -11,17 +12,9 @@ int count_words(char *str)
 int count = 0, i = 0;
 while (str[i] != '\0')
 {
-if (str[i] != ' ')
-{
+if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
 count++;
-while (str[i] != ' ' && str[i] != '\0')
 i++;
-}
-else
-{
-while (str[i] == ' ')
-i++;
-}
 }
 return (count);
 }
@@ -45,26 +38,26 @@ words = malloc((count + 1) * sizeof(char *));
 if (words == NULL)
 return (NULL);
 i = 0;
-while (str[i] != '\0' && count > 0)
+count = 0;
+while (str[i] != '\0')
 {
 while (str[i] == ' ')
 i++;
 len = 0;
 while (str[i + len] != ' ' && str[i + len] != '\0')
 len++;
-words[count - 1] = malloc((len + 1) * sizeof(char));
-if (words[count - 1] == NULL)
+words[count] = malloc((len + 1) * sizeof(char));
+if (words[count] == NULL)
 {
-while (count <= count_words(str))
-free(words[count++]);
+for (j = 0; j < count; j++)
+free(words[j]);
 free(words);
 return (NULL);
 }
-for (j = 0, k = i; j < len; j++, k++)
-words[count - 1][j] = str[k];
-words[count - 1][j] = '\0';
-count--;
-i += len;
+for (k = 0; k < len; k++)
+words[count][k] = str[i++];
+words[count][k] = '\0';
+count++;
 }
 words[count] = NULL;
 return (words);
