@@ -10,7 +10,7 @@
  */
 int _isdigit(char c)
 {
-	return (c >= '0' && c <= '9');
+return (c >= '0' && c <= '9');
 }
 
 /**
@@ -21,12 +21,10 @@ int _isdigit(char c)
  */
 int _strlen(char *str)
 {
-	int length = 0;
-
-	while (str[length] != '\0')
-		length++;
-
-	return (length);
+int length = 0;
+while (str[length] != '\0')
+length++;
+return (length);
 }
 
 /**
@@ -39,47 +37,44 @@ int _strlen(char *str)
  */
 char *_multiply(char *num1, char *num2)
 {
-    int len1 = _strlen(num1);
-    int len2 = _strlen(num2);
-    int len_result = len1 + len2;
-    int *result;
-    char *str_result;
-    int i, j, carry, product;
-    int start_index;
-    result = calloc(len_result, sizeof(int));
-    if (result == NULL)
-        return (NULL);
+int len1 = _strlen(num1);
+int len2 = _strlen(num2);
+int len_result = len1 + len2;
+int *result;
+char *str_result;
+int i, j, carry, product;
+int start_index;
+result = calloc(len_result, sizeof(int));
+if (result == NULL)
+return (NULL);
+str_result = malloc(sizeof(char) * (len_result + 1));
+if (str_result == NULL)
+{
+free(result);
+return (NULL);
+}
+for (i = len1 - 1; i >= 0; i--)
+{
+carry = 0;
+for (j = len2 - 1; j >= 0; j--)
+{
+product = (num1[i] - '0') * (num2[j] - '0') + carry + result[i + j + 1];
+carry = product / 10;
+result[i + j + 1] = product % 10;
+}
+result[i] += carry;
+}
 
-    str_result = malloc(sizeof(char) * (len_result + 1));
-    if (str_result == NULL)
-    {
-        free(result);
-        return (NULL);
-    }
+start_index = 0;
+while (start_index < len_result && result[start_index] == 0)
+start_index++;
+for (i = 0; i < len_result - start_index; i++)
+str_result[i] = result[i + start_index] + '0';
+str_result[len_result - start_index] = '\0';
 
-    for (i = len1 - 1; i >= 0; i--)
-    {
-        carry = 0;
-        for (j = len2 - 1; j >= 0; j--)
-        {
-            product = (num1[i] - '0') * (num2[j] - '0') + carry + result[i + j + 1];
-            carry = product / 10;
-            result[i + j + 1] = product % 10;
-        }
-        result[i] += carry;
-    }
+free(result);
 
-    start_index = 0;
-    while (start_index < len_result && result[start_index] == 0)
-        start_index++;
-
-    for (i = 0; i < len_result - start_index; i++)
-        str_result[i] = result[i + start_index] + '0';
-    str_result[len_result - start_index] = '\0';
-
-    free(result);
-
-    return (str_result);
+return (str_result);
 }
 
 /**
@@ -91,47 +86,41 @@ char *_multiply(char *num1, char *num2)
  */
 int main(int argc, char **argv)
 {
-	char *num1, *num2, *result;
-	int i;
+char *num1, *num2, *result;
+int i;
+if (argc != 3)
+{
+printf("Error\n");
+return (98);
+}
+num1 = argv[1];
+num2 = argv[2];
+for (i = 0; num1[i] != '\0'; i++)
+{
+if (!_isdigit(num1[i]))
+{
+printf("Error\n");
+return (98);
+}
+}
+for (i = 0; num2[i] != '\0'; i++)
+{
+if (!_isdigit(num2[i]))
+{
+printf("Error\n");
+return (98);
+}
+}
+result = _multiply(num1, num2);
+if (result == NULL)
+{
+printf("Error\n");
+return (98);
+}
 
-	if (argc != 3)
-	{
-		printf("Error\n");
-		return (98);
-	}
+printf("%s\n", result);
+free(result);
 
-	num1 = argv[1];
-	num2 = argv[2];
-
-	for (i = 0; num1[i] != '\0'; i++)
-	{
-		if (!_isdigit(num1[i]))
-		{
-			printf("Error\n");
-			return (98);
-		}
-	}
-
-	for (i = 0; num2[i] != '\0'; i++)
-	{
-		if (!_isdigit(num2[i]))
-		{
-			printf("Error\n");
-			return (98);
-		}
-	}
-
-	result = _multiply(num1, num2);
-
-	if (result == NULL)
-	{
-		printf("Error\n");
-		return (98);
-	}
-
-	printf("%s\n", result);
-	free(result);
-
-	return (0);
+return (0);
 }
 
