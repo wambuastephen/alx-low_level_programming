@@ -13,6 +13,8 @@ char *name;
 float age;
 char *owner;
 };
+/* Function prototype for print_dog */
+void print_dog(struct dog *d);
 
 #endif /* DOG_H */
 
