@@ -1,79 +1,53 @@
 #include "variadic_functions.h"
-#include <stdio.h>
-#include <stdarg.h>
-/**
- * print_char - Prints a char.
- * @args: The argument list.
- */
-void print_char(va_list args)
-{
-printf("%c", va_arg(args, int));
-}
 
-/**
- * print_integer - Prints an integer.
- * @args: The argument list.
- */
-void print_integer(va_list args)
-{
-printf("%d", va_arg(args, int));
-}
-
-/**
- * print_float - Prints a float.
- * @args: The argument list.
- */
-void print_float(va_list args)
-{
-printf("%f", va_arg(args, double));
-}
-
-/**
- * print_string - Prints a string (or (nil) if NULL).
- * @args: The argument list.
- */
-void print_string(va_list args)
-{
-char *str = va_arg(args, char *);
-if (str == NULL)
-printf("(nil)");
-else
-printf("%s", str);
-}
-
-/**
- * print_all - Prints anything depending on the format.
- * @format: A list of types of arguments passed to the function.
+/*
+ * print_all - prints anything based on the format provided
+ * @format: a list of types of arguments passed to the function
+ * c: char
+ * i: integer
+ * f: float
+ * s: char * (if the string is NULL, print (nil) instead)
+ * any other char should be ignored
  */
 void print_all(const char * const format, ...)
 {
-va_list args;
-unsigned int i = 0, j = 0;
-char *sep = "";
-print_type_t print_types[] = {
-{'c', print_char},
-{'i', print_integer},
-{'f', print_float},
-{'s', print_string},
-{'\0', NULL}
-};
-va_start(args, format);
-while (format && format[i])
+int i = 0;
+char *str, *sep = "";
+
+va_list list;
+
+va_start(list, format);
+
+if (format)
 {
-j = 0;
-while (print_types[j].type != '\0')
+while (format[i])
 {
-if (format[i] == print_types[j].type)
+switch (format[i])
 {
-printf("%s", sep);
-print_types[j].print(args);
+case 'c':
+printf("%s%c", sep, va_arg(list, int));
+break;
+case 'i':
+printf("%s%d", sep, va_arg(list, int));
+break;
+case 'f':
+printf("%s%f", sep, va_arg(list, double));
+break;
+case 's':
+str = va_arg(list, char *);
+if (!str)
+str = "(nil)";
+printf("%s%s", sep, str);
+break;
+default:
+i++;
+continue;
+}
 sep = ", ";
-}
-j++;
-}
 i++;
 }
-va_end(args);
-printf("\n");
 }
 
+printf("\n");
+va_end(list);
+}
