@@ -13,9 +13,7 @@ unsigned long int mask;
 
 if (index >= sizeof(unsigned long int) * 8) /* Ensure index is within bounds */
 return (-1);
-
 mask = 1UL << index; /* Create a mask with only the bit at index set to 1 */
-
 if (n & mask) /* Check if the bit at index is 1 */
 return (1);
 else

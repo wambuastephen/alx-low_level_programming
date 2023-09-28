@@ -20,7 +20,7 @@ while (b[i] != '\0')
 if (b[i] == '0' || b[i] == '1')
 {
 num <<= 1; /* Left shift the number by 1 to make space for the next bit*/
-num += (b[i] - '0'); /* Convert the character '0' or '1' to its corresponding integer value */
+num += (b[i] - '0'); /* Convert character '0' or '1' to corresponding integer*/
 i++;
 }
 else
