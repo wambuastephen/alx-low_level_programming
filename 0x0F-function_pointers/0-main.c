@@ -4,7 +4,6 @@
 /**
  * print_name_as_is - prints a name as is
  * @name: name of the person
- *
  * Return: Nothing.
  */
 void print_name_as_is(char *name)
@@ -30,11 +29,15 @@ void print_name_uppercase(char *name)
         {
             putchar(name[i] + 'A' - 'a');
         }
+
         else
-        {
+        
+	{
             putchar(name[i]);
         }
         i++;
+
+
     }
 }
 
