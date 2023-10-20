@@ -24,11 +24,11 @@ return (-1);
 
 if (text_content != NULL)
 {
-        /* Calculate the length of the text_content */
+/* Calculate the length of the text_content */
 while (text_content[text_length] != '\0')
 text_length++;
 
-/* Write text_content to the end of the file */
+/*Write text_content to the end of the file */
 bytes_written = write(file_descriptor, text_content, text_length);
 
 close(file_descriptor);
